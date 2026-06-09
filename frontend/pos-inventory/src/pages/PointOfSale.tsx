@@ -17,6 +17,8 @@ const PointOfSale: React.FC = () => {
   const [paymentMethod, setPaymentMethod] = useState<'cash' | 'card' | 'transfer'>('cash');
   const [saleSuccess, setSaleSuccess] = useState<string | null>(null);
   const [lastSale, setLastSale] = useState<Sale | null>(null);
+  const [lastSaleItemCount, setLastSaleItemCount] = useState(0);
+  const [lastSaleUnitCount, setLastSaleUnitCount] = useState(0);
   const [showReceiptModal, setShowReceiptModal] = useState(false);
   const receiptRef = useRef<HTMLDivElement>(null);
 
@@ -139,7 +141,9 @@ const PointOfSale: React.FC = () => {
       };
 
       const result = await createSale(saleData);
-      
+
+      setLastSaleItemCount(cart.length);
+      setLastSaleUnitCount(cart.reduce((sum, item) => sum + item.quantity, 0));
       setLastSale(result);
       setSaleSuccess(`Sale processed successfully! Total: ₦${(result.total_amount || 0).toFixed(2)}`);
       setCart([]);
@@ -920,7 +924,7 @@ const PointOfSale: React.FC = () => {
                 ₦{(lastSale.total_amount || 0).toLocaleString()}
               </div>
               <div className="text-sm text-gray-600 mt-2">
-                {cart.length} items • {cart.reduce((sum, item) => sum + item.quantity, 0)} units
+                {lastSaleItemCount} item{lastSaleItemCount !== 1 ? 's' : ''} • {lastSaleUnitCount} unit{lastSaleUnitCount !== 1 ? 's' : ''}
               </div>
               <div className="text-sm font-medium text-gray-700 mt-3 bg-white px-3 py-1.5 rounded-full inline-block">
                 Payment: {lastSale.payment_method.toUpperCase()}
