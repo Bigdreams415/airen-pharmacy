@@ -899,7 +899,7 @@ const PointOfSale: React.FC = () => {
               </div>
               
               <div className="thank-you">
-                THANK YOU FOR SHOPPING WITH US!
+                Thank you for choosing Airen Pharmacy. Your health is our priority.
               </div>
               
               <div className="footer">
