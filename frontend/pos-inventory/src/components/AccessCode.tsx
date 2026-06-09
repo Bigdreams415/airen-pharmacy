@@ -1,5 +1,6 @@
 // components/AccessCode.tsx (not pages/AccessCode.tsx)
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config/api';
 import {
   Box,
   Typography,
@@ -44,7 +45,7 @@ const AccessCode: React.FC<AccessCodeProps> = ({ isMobile }) => {
   const loadCurrentCode = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await fetch('https://abra-store-project.onrender.com/api/gatekeeper/code', {
+      const response = await fetch(`${API_BASE_URL}/gatekeeper/code`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -86,7 +87,7 @@ const AccessCode: React.FC<AccessCodeProps> = ({ isMobile }) => {
 
     try {
       const token = localStorage.getItem('authToken');
-      const response = await fetch('https://abra-store-project.onrender.com/api/gatekeeper/code', {
+      const response = await fetch(`${API_BASE_URL}/gatekeeper/code`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

@@ -1,5 +1,6 @@
 // MobileHeader.tsx
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../../config/api';
 
 interface Store {
   id: string;
@@ -21,7 +22,7 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ onMenuToggle }) => {
 
   const fetchCurrentStore = async () => {
     try {
-      const response = await fetch('https://abra-store-project.onrender.com/api/pharmacy/current');
+      const response = await fetch(`${API_BASE_URL}/pharmacy/current`);
       if (response.ok) {
         const result = await response.json();
         if (result.success) {

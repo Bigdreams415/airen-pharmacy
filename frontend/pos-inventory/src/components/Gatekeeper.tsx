@@ -1,5 +1,6 @@
 // components/Gatekeeper.tsx
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config/api';
 import {
   Box,
   Container,
@@ -53,7 +54,7 @@ const Gatekeeper: React.FC<GatekeeperProps> = ({ children }) => {
     setError('');
 
     try {
-      const response = await fetch('https://abra-store-project.onrender.com/api/gatekeeper/verify', {
+      const response = await fetch(`${API_BASE_URL}/gatekeeper/verify`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

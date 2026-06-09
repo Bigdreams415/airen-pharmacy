@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../../config/api';
 
 interface Store {
   id: string;
@@ -27,8 +28,7 @@ interface SyncState {
   error: string | null;
 }
 
-const API_BASE_URL = 'https://abra-store-project.onrender.com/api';  
-const CLOUD_SYNC_URL = 'not longer applicable';  
+const CLOUD_SYNC_URL = 'not longer applicable';
 
 const DesktopHeader: React.FC = () => {
   const [showStoreModal, setShowStoreModal] = useState(false);
