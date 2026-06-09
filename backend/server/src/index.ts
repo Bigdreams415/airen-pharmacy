@@ -33,7 +33,7 @@ app.use(cors({
     if (!origin) return callback(null, true);
     
     const allowedOrigins = [
-      'https://stop2shop-project.vercel.app'
+      'https://airen-pharmacy.vercel.app'
     ];
     
     if (allowedOrigins.includes(origin)) {
