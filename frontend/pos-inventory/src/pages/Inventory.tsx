@@ -709,7 +709,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
               disabled={isSubmitting}
-              placeholder="e.g., Fresh Tomatoes"
+              placeholder="e.g., Paracetamol 500mg"
             />
           </div>
 
@@ -724,7 +724,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
               onChange={(e) => setFormData({ ...formData, category: e.target.value })}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
               disabled={isSubmitting}
-              placeholder="e.g., Vegetables, Dairy, Beverages"
+              placeholder="e.g., Analgesics, Antibiotics, Vitamins"
             />
           </div>
 
